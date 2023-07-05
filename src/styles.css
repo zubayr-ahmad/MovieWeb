@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    /* bg-colors */
+    --primary-body-bg-color:#282e28;
+    --bg-color-dark-1-trans:#00000066;
+    --bg-color-dark-2-trans:#22222266;
+    --bg-color-dark-blue:#1b2925;
+
+    /* colors */
+    --primary-border-color:#00ff1e;
+    --primary-glow-outline-color: #0dff00;
+
+    --text-color-dark-green:#15ab26;
+
+    /* */
+    --eye-border-raduis-more: 40px 0px 40px 0px;
+    --primary-skew:skewX(-20deg);
+
+    /* Fonts */
+    --primary-font:sans-serif;
+}
+
+
+
+body {
+    box-sizing: border-box;
+    background-color: var(--primary-body-bg-color);
+}

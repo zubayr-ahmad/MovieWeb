@@ -1,11 +1,15 @@
-<nav class="">
-    <ul class="h-navbar">
+
+<nav class="main-block">
+    <ul class="menu-bar">
         <li class="fields">Home</li>
-        <li class="fields"><input type="text" placeholder="search movie"><button><i class="fa-solid fa-magnifying-glass" style="color: #1daa39;"></i></button></li>
+        <li class="fields search"><input type="text" class="search-input" placeholder="search movie"><button id="#searchButton"><i class="fa-solid fa-magnifying-glass fa-beat" style="color: var(--primary-border-color);"></i></button></li>
         <li class="fields">Upcoming</li>
         <li class="fields">Wish List</li>
+        <li class="fields">Favourites</li>
         <li class="fields">Login</li>
-        <li class="fields">|</li>
         <li class="fields">Register</li>
     </ul>
 </nav>
+
+
+<app-now-playing></app-now-playing>

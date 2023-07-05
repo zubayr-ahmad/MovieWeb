@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NowPlayingComponent } from './components/now-playing/now-playing.component';
 
 // Custom Modules Imports
 
@@ -11,7 +12,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    NowPlayingComponent
   ],
   imports: [
     BrowserModule,
