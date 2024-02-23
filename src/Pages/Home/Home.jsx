@@ -1,10 +1,11 @@
 import React from 'react'
+import Now_Playing from '../../Components/Now_Playing/Now_Playing'
 
 function Home() {
   return (
-    <div>
-      Home
-    </div>
+    <>
+      <Now_Playing />
+    </>
   )
 }
 
