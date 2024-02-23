@@ -1,3 +1,7 @@
+.now-playing {
+    margin-top: 100px;
+}
+
 .carousel-img,
 #upNextMoviesCards {
     max-height: var(--carousel-card-max-height);
@@ -10,6 +14,7 @@
     grid-template-columns: 2.5fr 1fr;
     gap: 30px;
 }
+
 
 .main-container,
 .headings {

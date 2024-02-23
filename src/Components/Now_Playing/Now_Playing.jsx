@@ -1,15 +1,15 @@
 import React from 'react'
-import '../../assets/Images/img01.jpg'
+import './Now_Playing.css'
 function Now_Playing() {
   return (
-    <div>
+    <div className='.now-playing'>
       <div className="headings">
         <h1>Now Playing</h1>
         <h1>Up next</h1>
       </div>
 
       <div className="main-container">
-        <div className="slide-show">
+        <div className="slide-show ">
           <div id="moviesCarousel" className="carousel slide" data-bs-ride="carousel" data-bs-interval="2400">
             <div className="carousel-indicators">
               <button type="button" data-bs-target="#moviesCarousel" data-bs-slide-to="0" className="active"
