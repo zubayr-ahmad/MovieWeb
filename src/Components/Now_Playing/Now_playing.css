@@ -1,0 +1,54 @@
+.now-playing {
+    margin-top: 100px;
+}
+
+.carousel-img,
+#upNextMoviesCards {
+    max-height: var(--carousel-card-max-height);
+}
+
+
+.main-container,
+.headings {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 30px;
+}
+
+
+.main-container,
+.headings {
+    margin-left: var(--primary-mg-left);
+    margin-right: var(--primary-mg-right);
+}
+
+.main-container {
+    margin-bottom: var(--block-bottom-space);
+}
+
+
+#upNextMoviesCards {
+    background-color: var(--primary-body-bg-color);
+    /* background-color: rgb(81, 171, 33); */
+}
+
+.upNextMoviesCards__card {
+    display: flex;
+    background-color: var(--bg-color-dark-blue);
+    /* border: 2px solid var(--primary-color); */
+    max-height: 220px;
+}
+
+.upNextMoviesCards__card:not(:last-child) {
+    margin-bottom: 35px;
+}
+
+#upNextMoviesCards__card__img {
+    width: 100%;
+    height: 220px;
+}
+
+.card-body {
+    padding-top: 7px;
+    padding-right: 12px;
+}
