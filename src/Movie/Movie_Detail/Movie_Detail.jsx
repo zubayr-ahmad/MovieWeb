@@ -3,7 +3,7 @@ import "./Movie_Detail.css"
 import { useParams } from 'react-router-dom'
 function Movie_Detail() {
     const { id } = useParams()
-    console.log(id)
+    // console.log(id)
     const [showHeart, setShowHeart] = useState(false)
     const [showWishlist, setShowWishlist] = useState(false)
     const [extra, setExtra] = useState(false)
@@ -33,18 +33,14 @@ function Movie_Detail() {
             return newPrev;
         });
     }
-
-
-
-    console.log(showHeart)
-    console.log(showWishlist);
     return (
         <div className='container'>
             <div className="row ">
                 {/* Poster image and rating section (left section) */}
                 <div className="col-4 movie_detail__poster_img_container">
+
                     {/* Heart icons hollow and solid */}
-                    <div className='movie_detail__heart-icons' onClick={toggleHeart}>
+                    <div className='movie_detail__heart-icons' title='Add to favorites' onClick={toggleHeart}>
                         <i id="hear1" className="movie_detail_poster_heart_icon fa-regular fa-heart"
                             style={{
                                 color: '#00ff00',
@@ -58,8 +54,8 @@ function Movie_Detail() {
                         }}
                         ></i>
                     </div>
-                    {/* Wishlist icon */}
-                    <div className='movie_detail__wishlist-icons' onClick={toggleWishlist}>
+                    {/* Wishlist icons */}
+                    <div className='movie_detail__wishlist-icons' title="Add to wishlist" onClick={toggleWishlist}>
                         <i id="wishlist1" className="movie_detail_poster_wishlist_icon fa-regular fa-bookmark"
                             style={{
                                 color: '#00ff00',
