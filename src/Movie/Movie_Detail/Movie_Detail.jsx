@@ -5,6 +5,7 @@ function Movie_Detail() {
     const { id } = useParams()
     console.log(id)
     const [showHeart, setShowHeart] = useState(false)
+    const [showWishlist, setShowWishlist] = useState(false)
     const [extra, setExtra] = useState(false)
     const toggleHeart = () => {
         setShowHeart((prev) =>{
@@ -19,7 +20,24 @@ function Movie_Detail() {
         });
         // setExtra(true);
     }
+
+    const toggleWishlist = () => {
+        setShowWishlist((prev) =>{
+            const newPrev = !prev;
+            if(newPrev){
+                document.getElementById('wishlist2').style.opacity = 1;
+            }
+            else{
+                document.getElementById('wishlist2').style.opacity = 0;
+            }
+            return newPrev;
+        });
+    }
+
+
+
     console.log(showHeart)
+    console.log(showWishlist);
     return (
         <div className='container'>
             <div className="row ">
@@ -39,7 +57,21 @@ function Movie_Detail() {
                                 fontSize: 'xx-large',   
                         }}
                         ></i>
-
+                    </div>
+                    {/* Wishlist icon */}
+                    <div className='movie_detail__wishlist-icons' onClick={toggleWishlist}>
+                        <i id="wishlist1" className="movie_detail_poster_wishlist_icon fa-regular fa-bookmark"
+                            style={{
+                                color: '#00ff00',
+                                fontSize: 'xx-large',
+                            }}
+                        ></i>
+                        <i id="wishlist2" className="movie_detail_poster_wishlist_icon fa-solid fa-bookmark"
+                            style={{
+                                color: '#00ff00',
+                                fontSize: 'xx-large',
+                            }}
+                        ></i>
                     </div>
                     
                     {/* Poster image */}
