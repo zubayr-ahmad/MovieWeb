@@ -1,4 +1,6 @@
+/* Whole container on left side */
 .movie_detail__poster_img_container{
+    position: relative;
     border: 5px solid var(--bg-color-dark-blue);
     padding: 0;
     border-radius: 5px;
@@ -6,6 +8,20 @@
     /* height: 800px; */
     /* border: 2px solid greenyellow; */
     margin-bottom: 100px;
+}
+
+.movie_detail_poster_heart_icon{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: var(--primary-color);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 3;
+}
+
+#hear2{
+    opacity: 0;
 }
 
 #movie_detail__poster_img{
