@@ -83,3 +83,15 @@
     padding: 0;
     display: inline;
 }
+
+/* Right side section (Details) */
+.movie_detail__content{
+    background-color: var(--bg-color-dark-blue);
+    margin-bottom: 100px;
+}
+
+#movie_detail__title{
+    font-size: 3rem;
+    padding: 5px;
+    background-color: aliceblue;
+}
