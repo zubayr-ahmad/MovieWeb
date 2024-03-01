@@ -60,8 +60,9 @@
 }
 
 #movie_detail__poster_rating{
-    height: 10%;
-    background-color: var(--bg-color-dark-blue);
+    margin-top: 6px;
+    /* height: 10%; */
+    background-color: var(--bg-color-dark-green);
     color: var(--primary-color);
     padding: 5px;
     font-size: 2rem;
@@ -90,8 +91,41 @@
     margin-bottom: 100px;
 }
 
+.movie_detail__content div{
+        margin-top: 10px;
+        padding: 10px 10px;
+        background-color: var(--bg-color-dark-green);
+        padding-bottom: 10px;
+        border-radius: 5px;
+}
+
 #movie_detail__title{
     font-size: 3rem;
-    padding: 5px;
-    background-color: aliceblue;
+}
+
+.movie_detail__single_line_block{
+    font-size: 1.1rem;
+}
+
+.movie_detail__sub_heading{
+    width: 100%;
+    font-size: 2rem;
+    
+}
+
+#movie_detail__genres-container {
+    /* display: flex;
+    overflow-x: auto; */
+    /* Enable horizontal scrolling if genres exceed container width */
+}
+
+#movie_detail__genre-capsule {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-right: 8px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.045);
+    /* Whitish color with transparency */
+    white-space: nowrap;
+    /* Prevent line breaks within capsules */
 }
