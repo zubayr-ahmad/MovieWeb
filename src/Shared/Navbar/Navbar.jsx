@@ -12,7 +12,7 @@ function Navbar() {
       <li className="fields">Wish List</li>
       <li className="fields">Favorites</li>
       <li className="fields">Login</li>
-      <li className="fields">Register</li>
+      <li className="fields"><Link to='https://www.themoviedb.org/signup' target='blank'>Register</Link></li>
     </ul>
 </nav >
   )
