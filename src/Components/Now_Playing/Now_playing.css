@@ -1,12 +1,17 @@
 .now-playing {
-    margin-top: 100px;
+    margin-top: 30px;
+}
+
+.now-playing .headings{
+    font-size: 2.5rem;
+    font-weight: 500;
+    padding: 8px 0px;
 }
 
 .carousel-img,
 #upNextMoviesCards {
     max-height: var(--carousel-card-max-height);
 }
-
 
 .main-container,
 .headings {
