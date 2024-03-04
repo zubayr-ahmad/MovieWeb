@@ -2,7 +2,7 @@ import React from 'react'
 import './Now_Playing.css'
 function Now_Playing() {
   return (
-    <div className='.now-playing'>
+    <div className='now-playing'>
       <div className="headings">
         <h1>Now Playing</h1>
         <h1>Up next</h1>
