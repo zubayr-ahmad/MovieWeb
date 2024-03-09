@@ -1,3 +1,7 @@
+#movie_detail_component{
+    margin-bottom: var(--block-bottom-space);
+}
+
 /* Whole container on left side */
 .movie_detail__poster_img_container{
     position: relative;
@@ -5,9 +9,9 @@
     padding: 0;
     border-radius: 5px;
     /* height: 95%; */
-    /* height: 800px; */
+    /* height: 700px; */
     /* border: 2px solid greenyellow; */
-    margin-bottom: 100px;
+    /* margin-bottom: var(--block-bottom-space); */
 }
 
 .movie_detail_poster_heart_icon{
@@ -88,7 +92,6 @@
 /* Right side section (Details) */
 .movie_detail__content{
     background-color: var(--bg-color-dark-blue);
-    margin-bottom: 100px;
 }
 
 .movie_detail__content div{
@@ -113,11 +116,10 @@
     
 }
 
-#movie_detail__genres-container {
-    /* display: flex;
-    overflow-x: auto; */
-    /* Enable horizontal scrolling if genres exceed container width */
-}
+/* #movie_detail__genres-container {
+    display: flex;
+    overflow-x: auto;
+} */
 
 #movie_detail__genre-capsule {
     display: inline-block;
