@@ -34,7 +34,7 @@ function Movie_Detail() {
         });
     }
     return (
-        <div className='container'>
+        <div className='container' id='movie_detail_component'>
             <div className="row ">
                 {/* Poster image and rating section (left section) */}
                 <div className="col-4 movie_detail__poster_img_container">
