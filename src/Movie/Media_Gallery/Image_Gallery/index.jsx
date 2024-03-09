@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Carousel from 'react-material-ui-carousel'
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { imagesList } from '../../../Utils/ExtraData';
-
+import ACCESS_TOKEN from '../../../tmdb_acc';
 
 
 function index() {
@@ -12,7 +12,7 @@ function index() {
       method: 'GET',
       headers: {
         accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2M2FlOWI3OGQ5ZGY3ODUyOTUyYWRlYTg1YzFhNTBmNiIsInN1YiI6IjY0OWM5Mjc1MDkxZTYyMDBjYWRmNzlkYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qlrXFSU9YQGQTPJOFkDW1rl7LK6zSpnuHlqMxw9l_H4'
+        Authorization: `Bearer ${ACCESS_TOKEN}`
       }
     };
 
