@@ -17,7 +17,7 @@ function index() {
     let data_images = [];
     fetchData("https://api.themoviedb.org/3/movie/269149/images")
       .then(data => {
-        console.log(data)
+        // console.log(data)
         data_images = data.backdrops.map((image) => {
           return "https://image.tmdb.org/t/p/w500"+image.file_path;
         })  
@@ -25,8 +25,6 @@ function index() {
         setImages(data_images);
       })
       .catch(err => console.error(err));
-    
-      
 }, [])
 
   // responsive carousel
