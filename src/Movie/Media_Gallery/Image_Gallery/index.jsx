@@ -1,55 +1,70 @@
-import React, { useEffect, useState } from 'react'
-import Carousel from 'react-material-ui-carousel'
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import React, { useEffect, useState, useRef } from 'react'
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import { imagesList } from '../../../Utils/ExtraData';
-import ACCESS_TOKEN from '../../../tmdb_acc';
+import { fetchData } from '/src/Utils/API';
+import './index.css';
 
+function getRandomElements(arr, n) {
+  const shuffled = [...arr].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, n);
+}
 
 function index() {
   const [images, setImages] = useState(imagesList);
+  const scrollContainer = useRef(null);
   useEffect(() => {
-    const options = {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization: `Bearer ${ACCESS_TOKEN}`
-      }
-    };
-
-    const img = fetch('https://api.themoviedb.org/3/movie/385687/images', options)
-      .then(response => response.json())
-      .then(response => {
-        console.log(response)
-        return response
+    let data_images = [];
+    fetchData("https://api.themoviedb.org/3/movie/385687/images")
+      .then(data => {
+        console.log(data)
+        data_images = data.backdrops.map((image) => {
+          return "https://image.tmdb.org/t/p/w500"+image.file_path;
+        })  
+        data_images = getRandomElements(data_images, 20);
+        setImages(data_images);
       })
       .catch(err => console.error(err));
-    setImages(img);
-    if (images.length > 20) {
-      // Randomize the array using the Fisher-Yates algorithm
-      for (let i = images.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [images[i], images[j]] = [images[j], images[i]];
-      }
-  
-      // Select the first 20 elements
-      images = images.slice(0, 20);
-      setImages(images);
-  }}, [])
-  
+    
+      
+}, [])
+
+  // responsive carousel
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 4
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
   
   return (
+    
     <>
-      {/* <Carousel>
-        {
-          images.map((image, i) => <Item key={i} item={image} />)
-        }
-      </Carousel> */}
-      {
-      images.map((image, i) => {
-        return (
-      <img src={`https://image.tmdb.org/t/p/w500/${image}`} alt="" />
-        )
-      })}
+      <h1 id='image_gallery__images_heading'>Images</h1>
+      <Carousel responsive={responsive}
+        slidesToSlide={2}
+        autoPlay={true}
+        autoPlaySpeed={4500}
+        infinite={true} transitionDuration={1000}
+      >
+        {images.map((image, i) => (
+          <div key={i}>
+            <img src={image} alt={i} />
+          </div>
+        ))}
+      </Carousel>
     </>
   )
 }
