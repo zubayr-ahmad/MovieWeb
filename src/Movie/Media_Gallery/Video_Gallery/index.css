@@ -1,11 +1,9 @@
-#image_gallery_container{
+#video_gallery_container{
     margin-bottom: var(--block-bottom-space);
 }
-
-#image_gallery__images_heading {
+#video_gallery__videos_heading {
     font-size: 2.5rem;
-    font-weight: 500 ;
+    font-weight: 500;
     padding: 8px 0px;
     display: block;
-    
 }
