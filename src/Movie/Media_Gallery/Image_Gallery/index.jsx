@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { imagesList } from '../../../Utils/ExtraData';
@@ -12,12 +12,12 @@ function getRandomElements(arr, n) {
 
 function index() {
   const [images, setImages] = useState(imagesList);
-  const scrollContainer = useRef(null);
+
   useEffect(() => {
     let data_images = [];
-    fetchData("https://api.themoviedb.org/3/movie/385687/images")
+    fetchData("https://api.themoviedb.org/3/movie/269149/images")
       .then(data => {
-        console.log(data)
+        // console.log(data)
         data_images = data.backdrops.map((image) => {
           return "https://image.tmdb.org/t/p/w500"+image.file_path;
         })  
@@ -25,8 +25,6 @@ function index() {
         setImages(data_images);
       })
       .catch(err => console.error(err));
-    
-      
 }, [])
 
   // responsive carousel
@@ -51,7 +49,7 @@ function index() {
   
   return (
     
-    <>
+    <div id='image_gallery_container'>
       <h1 id='image_gallery__images_heading'>Images</h1>
       <Carousel responsive={responsive}
         slidesToSlide={2}
@@ -65,7 +63,7 @@ function index() {
           </div>
         ))}
       </Carousel>
-    </>
+    </div>
   )
 }
 
