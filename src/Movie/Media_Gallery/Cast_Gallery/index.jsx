@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { fetchData } from '/src/Utils/API';
-
+import './index.css'
 const Actor = (props) =>{
     const { cast } = props;
     const {name, profile_path, character} = cast;
     // console.log(cast);
     return (<>
-    <img src={"https://image.tmdb.org/t/p/w500"+profile_path} alt={cast.name} style={{ borderRadius: '50%', width: '50px', height: '50px' }} />
+        <img className='cast_gallery__actor_img' src={"https://image.tmdb.org/t/p/w500"+profile_path} alt={cast.name} style={{  }} />
     <p>{name}</p>
     <p>{character}</p>
     </>
