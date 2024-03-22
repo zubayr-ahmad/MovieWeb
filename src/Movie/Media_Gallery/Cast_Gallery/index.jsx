@@ -18,10 +18,10 @@ const Actor = (props) =>{
 function index() {
     const [casts, setCasts] = useState([]);
     useEffect(() => {
-        fetchData('https://api.themoviedb.org/3/movie/550/credits?api_key=<<api_key>>&language=en-US')
+        fetchData('https://api.themoviedb.org/3/movie/550/credits')
             .then(data => setCasts(data.cast));
     }, []);
-    // console.log(casts)
+    console.log(casts)
     return (
         <div className='container'>
             <div className="row">
