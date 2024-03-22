@@ -7,8 +7,10 @@ const Actor = (props) =>{
     // console.log(cast);
     return (<>
         <img className='cast_gallery__actor_img' src={"https://image.tmdb.org/t/p/w500"+profile_path} alt={cast.name} style={{  }} />
-    <p>{name}</p>
-    <p>{character}</p>
+        <div>
+            <p className='actor_name' >{name}</p>
+            <p className='actor_character'>{character}</p>
+        </div>
     </>
     )
 }
@@ -24,19 +26,18 @@ function index() {
     return (
         <div className='container'>
             <div className="row">
+                <h2>Cast</h2>
                 <div className="col-6 cast_column1">
-                    <h2>Cast1</h2>
                     {casts.slice(0, 10).map((cast, i) => (
-                        <div key={i}>
-                            
+                        <div className='cast_gallery__actor' key={i}>    
                             <Actor cast={cast}/>
                         </div>
                     ))}
                 </div>
                 <div className="col-6">
-                    <h2>Cast2</h2>
+                    {/* <h2>Cast2</h2> */}
                     {casts.slice(10, 20).map((cast, i) => (
-                        <div key={i}>
+                        <div className='cast_gallery__actor' key={i}>
                             <Actor cast={cast} />
                         </div>
                     ))}
