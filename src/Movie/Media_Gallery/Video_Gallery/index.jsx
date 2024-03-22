@@ -56,13 +56,11 @@ function index() {
             <h1 id='video_gallery__videos_heading'>Videos</h1>
             <Carousel responsive={responsive}>
                 {videos.map((video, i) => (
-                    <div key={i}>
+                    <div className='video_gallery_video' key={i}>
                         <iframe width="600" height="320" src={`https://www.youtube.com/embed/${video}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                     </div>
                 ))}
-            </Carousel>
-            {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/of-LdY_oR7E" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe> */}
-            
+            </Carousel>            
         </div>
     )
 }
