@@ -1,24 +1,39 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { imagesList } from '../../Utils/ExtraData'
+import {fetchData} from '../../Utils/API'
 import './Top_Rated.css';
 function Top_Rated() {
     const navigate = useNavigate();
-    
+    const [movies, setMovies] = useState([]);
+    const [page, setPage] = useState(2)
+    console.log(movies)
     const seeMovieDetails = (id) => {
         navigate(`/movie/${id}`)
     }
+    const fetchMoreMovies = () => {
+        const data = fetchData(`https://api.themoviedb.org/3/movie/top_rated?page=${page}`)
+        setMovies([...movies, ...data])
+        setPage(page + 1)
+    }
+    useEffect(() => {
+        let data = []
+        fetchData(`https://api.themoviedb.org/3/movie/top_rated`).then(res => {
+            data = res.results
+            setMovies(data)
+        })
+    }, [])
     return (
         <>
             <h1 className="top_rated__main-heading">
                 Top Rated
             </h1>
             <div className="top-rated-movies-cards">
-                    {imagesList.map((path, index) => (
+                    {movies.map((movie, index) => (
                         <div key={index}>
                             <div className="top_rated__main-container">
                                 <div className="card" >
-                                    <img src={path}
+                                    <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : imagesList[index % 20]}
                                         alt="Movie Poster"
                                     />
                                     <div className="card__overlay">
@@ -54,17 +69,16 @@ function Top_Rated() {
                                         className="movie-title"
                                         href=""
                                     >
-                                        Puss in boots The last wish asdlkfjlaskjflaskjflkjasdlkfj
+                                        {movie.title}
                                     </a>
                                     <div className="movie-year">
-                                        2023
+                                        {movie.release_date?.slice(0, 4)}
                                     </div>
                                 </div>
                             </div>
-                        
-                </div>
-
+                        </div>
                     ))}
+            <button id="top_rated__see_more_btn" onClick={fetchMoreMovies}>See More</button>
             </div>
         </ >
     )
