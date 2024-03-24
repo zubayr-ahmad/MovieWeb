@@ -12,9 +12,15 @@ function Top_Rated() {
         navigate(`/movie/${id}`)
     }
     const fetchMoreMovies = () => {
-        const data = fetchData(`https://api.themoviedb.org/3/movie/top_rated?page=${page}`)
-        setMovies([...movies, ...data])
-        setPage(page + 1)
+        let data = []
+        fetchData(`https://api.themoviedb.org/3/movie/top_rated?page=${page}`)
+            .then(res => {
+                data = res.results
+                setMovies([...movies, ...data])
+                setPage(page + 1)
+            })
+        console.log(data)
+        
     }
     useEffect(() => {
         let data = []
@@ -47,10 +53,10 @@ function Top_Rated() {
                                             />
                                         </div>
                                         <div className="rating">
-                                            7.8/10
+                                            {movie.vote_average.toFixed(1)}
                                         </div>
                                         <div className="button-detail">
-                                            <button className="learn-more" onClick={()=> seeMovieDetails(index)}>
+                                            <button className="learn-more" onClick={()=> seeMovieDetails(movie.id)}>
                                                 <span
                                                     aria-hidden="true"
                                                     className="circle"
