@@ -390,3 +390,43 @@ button:hover .button-text {
 .movie-year {
     color: #ffffff82;
 }
+
+/* See More button */
+#top_rated__see_more_btn {
+    margin: auto;
+    padding: 0.8em 1.8em;
+    border: 2px solid var(--primary-glow-outline-color);
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: white;
+    border-radius: 5px;
+}
+
+#top_rated__see_more_btn::before {
+    content: '';
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: var(--primary-color-dark);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+#top_rated__see_more_btn:hover::before {
+    width: 105%;
+}
+
+#top_rated__see_more_btn:hover {
+    color: white;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchData } from '/src/Utils/API';
+import { useParams } from 'react-router-dom';
 import './index.css'
 const Actor = (props) =>{
     const { cast } = props;
@@ -17,11 +18,12 @@ const Actor = (props) =>{
 
 function index() {
     const [casts, setCasts] = useState([]);
+    const { id } = useParams();
     useEffect(() => {
-        fetchData('https://api.themoviedb.org/3/movie/550/credits')
+        fetchData(`https://api.themoviedb.org/3/movie/${id}/credits`)
             .then(data => setCasts(data.cast));
     }, []);
-    console.log(casts)
+    // console.log(casts)
     return (
         <div className='container'>
             <div className="row">

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { fetchData } from '/src/Utils/API';
+import { useParams } from 'react-router-dom'
 import './index.css';
 
 function getRandomElements(arr, n) {
@@ -32,9 +33,10 @@ const responsive = {
 
 function index() {
     const [videos, setVideos] = useState([]);
+    const { id } = useParams()
     useEffect(() => {
         let data_videos = [];
-        fetchData("https://api.themoviedb.org/3/movie/269149/videos")
+        fetchData(`https://api.themoviedb.org/3/movie/${id}/videos`)
             .then(data => {
                 // console.log(data)
                 data.results.map((object) => {                    

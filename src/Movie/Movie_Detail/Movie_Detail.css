@@ -116,6 +116,11 @@
     
 }
 
+#movie_detail__description{
+    height: 250px;
+    overflow-y: auto;
+}
+
 /* #movie_detail__genres-container {
     display: flex;
     overflow-x: auto;
@@ -130,4 +135,8 @@
     /* Whitish color with transparency */
     white-space: nowrap;
     /* Prevent line breaks within capsules */
+}
+
+#movie_details__imdb_link:hover, #movie_details__rate_movie:hover{
+    color: var(--primary-color);
 }
