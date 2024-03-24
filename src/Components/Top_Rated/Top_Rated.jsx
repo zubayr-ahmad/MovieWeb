@@ -73,7 +73,7 @@ function Top_Rated() {
                                 <div className="card__content">
                                     <a
                                         className="movie-title"
-                                        href=""
+                                        onClick={() => seeMovieDetails(movie.id)}
                                     >
                                         {movie.title}
                                     </a>

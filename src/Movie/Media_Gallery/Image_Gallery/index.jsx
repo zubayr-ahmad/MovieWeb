@@ -3,6 +3,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { imagesList } from '../../../Utils/ExtraData';
 import { fetchData } from '/src/Utils/API';
+import { useParams } from 'react-router-dom'
 import './index.css';
 
 function getRandomElements(arr, n) {
@@ -12,10 +13,11 @@ function getRandomElements(arr, n) {
 
 function index() {
   const [images, setImages] = useState(imagesList);
+  const { id } = useParams()
 
   useEffect(() => {
     let data_images = [];
-    fetchData("https://api.themoviedb.org/3/movie/269149/images")
+    fetchData(`https://api.themoviedb.org/3/movie/${id}/images`)
       .then(data => {
         // console.log(data)
         data_images = data.backdrops.map((image) => {
