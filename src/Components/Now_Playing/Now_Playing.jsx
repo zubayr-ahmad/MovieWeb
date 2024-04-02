@@ -1,14 +1,16 @@
 import React from 'react'
 import './Now_Playing.css'
 function Now_Playing() {
+  
   return (
     <div className='now-playing'>
       <div className="headings">
         <h1>Now Playing</h1>
-        <h1>Up next</h1>
+        <h1>Up Next</h1>
       </div>
 
       <div className="main-container">
+        {/* Now Playing */}
         <div className="slide-show ">
           <div id="moviesCarousel" className="carousel slide" data-bs-ride="carousel" data-bs-interval="2400">
             <div className="carousel-indicators">
@@ -74,6 +76,7 @@ function Now_Playing() {
           </div>
         </div>
 
+        {/* Up Next */}
         <div className="" id="upNextMoviesCards">
           <div className="upNextMoviesCards__card">
             <div className="row">
@@ -85,7 +88,11 @@ function Now_Playing() {
                 <div className="card-body">
                   <h5 className="card-title">Card title</h5>
                   <p className="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.</p>
+                    additional content. This content is a little bit longer.
+                  </p>
+                  <button id="now_playing_up_next__movie_btn">More</button>
+
+                  
                   {/* <p className="btn btn-warning">
                     <a>
                       <i className="bi bi-film"></i>Trailer
