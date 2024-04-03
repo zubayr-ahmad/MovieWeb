@@ -7,7 +7,7 @@ function Top_Rated() {
     const navigate = useNavigate();
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(2)
-    console.log(movies)
+    // console.log(movies)
     const seeMovieDetails = (id) => {
         navigate(`/movie/${id}`)
     }
@@ -19,7 +19,7 @@ function Top_Rated() {
                 setMovies([...movies, ...data])
                 setPage(page + 1)
             })
-        console.log(data)
+        // console.log(data)
         
     }
     useEffect(() => {

@@ -64,6 +64,24 @@
     padding-right: 12px;
 }
 
+.card-body .card-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    
+}
+
+.card-body .card-text{
+    max-height: 120px;
+    min-height: 120px;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        /* number of lines to display */
+        -webkit-box-orient: vertical;
+}
+
 #now_playing_up_next__movie_btn{
     margin-top: 8px;
     background-color: var(--primary-color-dark);

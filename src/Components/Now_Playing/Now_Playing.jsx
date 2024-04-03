@@ -1,10 +1,28 @@
 import { useState, useEffect } from 'react';
 import './Now_Playing.css';
-
-import { now_playing_movies as movies } from '../../Utils/ExtraData';
+import { useNavigate } from 'react-router-dom'
+import { fetchData } from '../../Utils/API';
 
 function Now_Playing() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);    // logically does not have much to do but used in below portions just for showing up things
+  const navigate = useNavigate();
+  const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
+  const [upNextMovies, setUpNextMovies] = useState([]);
+  useEffect(() => {
+    // show now playing movies page 01 on slide show
+    fetchData("https://api.themoviedb.org/3/movie/now_playing").then((res) => {
+      setNowPlayingMovies(res.results);
+    });
+    // page 02 on up next section
+    fetchData("https://api.themoviedb.org/3/movie/now_playing?page=2").then((res) => {
+      setUpNextMovies(res.results);
+    })
+  },[])
+  
+  const seeMovieDetails = (id) => {
+    navigate(`/movie/${id}`)
+  }
+  
   return (
     <div className='now-playing'>
       <div className="headings">
@@ -17,7 +35,7 @@ function Now_Playing() {
         <div className="slide-show ">
           <div id="moviesCarousel" className="carousel slide" data-bs-ride="carousel" data-bs-interval="2400">
             <div className="carousel-indicators">
-              {movies.map((movie, index) => (
+              {nowPlayingMovies.map((movie, index) => (
                 <button
                   key={index}
                   type="button"
@@ -30,9 +48,9 @@ function Now_Playing() {
               ))}
             </div>
             <div className="carousel-inner">
-              {movies.map((movie, index) => (
-                <div key={index} className={`carousel-item ${index === currentIndex ? 'active' : ''}`}>
-                  <img src={movie.image} className="d-block w-100 carousel-img" alt={movie.title} />
+              {nowPlayingMovies.map((movie, index) => (
+                <div key={index} onClick={()=>seeMovieDetails(movie?.id)} className={`carousel-item ${index === currentIndex ? 'active' : ''}`}>
+                  <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} className="d-block w-100 carousel-img" alt={movie.title} />
                   <div className="carousel-caption d-none d-md-block">
                   </div>
                 </div>
@@ -51,17 +69,17 @@ function Now_Playing() {
 
         {/* Up Next */}
         <div className="" id="upNextMoviesCards">
-          {movies.map((movie, index) => (
-            <div className="upNextMoviesCards__card" key={index} onClick={() => handleCardClick(movie)}>
+          {upNextMovies.map((movie, index) => (
+            <div className="upNextMoviesCards__card" key={index}>
               <div className="row">
                 <div className="col-md-4">
-                  <img id="upNextMoviesCards__card__img" src={movie.image} className="img-fluid rounded-start aside-card-image" alt="..." />
+                  <img id="upNextMoviesCards__card__img" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} className="img-fluid rounded-start aside-card-image" alt="..." />
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">
                     <h5 className="card-title">{movie.title}</h5>
-                    <p className="card-text">{movie.description}</p>
-                    <button id="now_playing_up_next__movie_btn">More</button>
+                    <p className="card-text">{movie.overview}</p>
+                    <button id="now_playing_up_next__movie_btn" onClick={()=>seeMovieDetails(movie?.id)}>More</button>
                   </div>
                 </div>
               </div>
