@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import { imagesList } from '../../Utils/ExtraData'
 import {fetchData} from '../../Utils/API'
 import './Top_Rated.css';
-function Top_Rated() {
+function Top_Rated(props) {
+    const { heading, url } = props
+    console.log(heading, url)
     const navigate = useNavigate();
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(2)
@@ -13,7 +15,7 @@ function Top_Rated() {
     }
     const fetchMoreMovies = () => {
         let data = []
-        fetchData(`https://api.themoviedb.org/3/movie/top_rated?page=${page}`)
+        fetchData(`${url}?page=${page}`)
             .then(res => {
                 data = res.results
                 setMovies([...movies, ...data])
@@ -24,7 +26,7 @@ function Top_Rated() {
     }
     useEffect(() => {
         let data = []
-        fetchData(`https://api.themoviedb.org/3/movie/top_rated`).then(res => {
+        fetchData(`${url}`).then(res => {
             data = res.results
             setMovies(data)
         })
@@ -32,7 +34,7 @@ function Top_Rated() {
     return (
         <>
             <h1 className="top_rated__main-heading">
-                Top Rated
+                {heading}
             </h1>
             <div className="top-rated-movies-cards">
                     {movies.map((movie, index) => (

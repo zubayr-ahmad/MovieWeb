@@ -6,7 +6,7 @@ function Home() {
   return (
     <>
       <Now_Playing />
-      <Top_Rated />
+      <Top_Rated heading="Top Rated" url="https://api.themoviedb.org/3/movie/top_rated"/>
     </>
   )
 }
