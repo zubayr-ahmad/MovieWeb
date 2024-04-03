@@ -20,3 +20,18 @@ export const imagesList = [
     "src/assets/Images/img19.jpg",
     "src/assets/Images/img20.jpg",
 ]
+
+export const now_playing_movies = [
+    { image: "src/assets/Images/img01.jpg" ,
+    title:"Zootopia", description:"This is a movie containing rabbit and some other animals inside a city and so on and on until they find something that has to be amazing"},
+    { image: "src/assets/Images/img02.jpg" ,
+    title:"Zootopia", description:"This is a movie containing rabbit and some other animals inside a city and so on and on until they find something that has to be amazing"},
+    { image: "src/assets/Images/img03.jpg" ,
+    title:"Zootopia", description:"This is a movie containing rabbit and some other animals inside a city and so on and on until they find something that has to be amazing"},
+    { image: "src/assets/Images/img04.jpg" ,
+    title:"Zootopia", description:"This is a movie containing rabbit and some other animals inside a city and so on and on until they find something that has to be amazing"},
+    { image: "src/assets/Images/img05.jpg" ,
+    title:"Zootopia", description:"This is a movie containing rabbit and some other animals inside a city and so on and on until they find something that has to be amazing"},
+    { image: "src/assets/Images/img06.jpg" ,
+    title:"Zootopia", description:"This is a movie containing rabbit and some other animals inside a city and so on and on until they find something that has to be amazing"},
+]
