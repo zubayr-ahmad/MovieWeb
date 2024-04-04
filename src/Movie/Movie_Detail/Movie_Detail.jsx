@@ -15,16 +15,26 @@ function Movie_Detail() {
             setMovieDetails(res)
             console.log("Movie Details",res)
         })
+        if (!JSON.parse(localStorage.getItem("favMovies")).includes(id)) {
+            document.getElementById('hear2').style.opacity = 0;
+            setShowHeart(false);
+        }
+        if (!JSON.parse(localStorage.getItem("watchlist")).includes(id)) {
+            document.getElementById('wishlist2').style.opacity = 0;
+            setShowWishlist(false);
+        }
     },[])
 
     const toggleHeart = () => {
         setShowHeart((prev) => {
             const newPrev = !prev;
-            if (newPrev) {
+            if (newPrev && !JSON.parse(localStorage.getItem("favMovies")).includes(id)) {
                 document.getElementById('hear2').style.opacity = 1;
+                localStorage.setItem("favMovies", JSON.stringify([...JSON.parse(localStorage.getItem("favMovies")), id]))
             }
             else {
                 document.getElementById('hear2').style.opacity = 0;
+                localStorage.setItem("favMovies", JSON.stringify(JSON.parse(localStorage.getItem("favMovies")).filter(movie => movie !== id)))
             }
             return newPrev;
         });
@@ -33,11 +43,13 @@ function Movie_Detail() {
     const toggleWishlist = () => {
         setShowWishlist((prev) => {
             const newPrev = !prev;
-            if (newPrev) {
+            if (newPrev && !JSON.parse(localStorage.getItem("watchlist")).includes(id)) {
                 document.getElementById('wishlist2').style.opacity = 1;
+                localStorage.setItem("watchlist", JSON.stringify([...JSON.parse(localStorage.getItem("watchlist")), id]))
             }
             else {
                 document.getElementById('wishlist2').style.opacity = 0;
+                localStorage.setItem("watchlist", JSON.stringify(JSON.parse(localStorage.getItem("watchlist")).filter(movie => movie !== id)))
             }
             return newPrev;
         });

@@ -25,13 +25,13 @@
 }
 
 /* For initially setting them off */
-#hear2{
+/* #hear2{
     opacity: 0;
-}
+} */
 
-#wishlist2{
+/* #wishlist2{
     opacity: 0;
-}
+} */
 
 .movie_detail_poster_wishlist_icon{
     position: absolute;
