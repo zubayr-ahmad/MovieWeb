@@ -10,7 +10,7 @@ function Navbar() {
       <li className="navbar__search"><input type="text" className="navbar__search-input" placeholder="search movie" /><button id="#searchButton"><i className="fa-solid fa-magnifying-glass fa-beat navbar__search-icon" ></i></button></li>
         <li className="navbar__fields"><Link to='/upcoming'>Upcoming</Link></li>
         <li className="navbar__fields"><Link to='/wishlist'>Wish List</Link></li>
-      <li className="navbar__fields">Favorites</li>
+        <li className="navbar__fields"><Link to='/favorites'>Favorites</Link></li>
       {/* <li className="navbar__fields">Login</li>
       <li className="navbar__fields"><Link to='https://www.themoviedb.org/signup' target='blank'>Register</Link></li> */}
     </ul>

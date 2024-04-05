@@ -1,14 +1,19 @@
-import { now_playing_movies as movies, setFavoriteMovies, setWishlistMovies} from "../../Utils/ExtraData";
+import { setFavoriteMovies, setWishlistMovies} from "../../Utils/ExtraData";
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom'
 import { fetchData } from "../../Utils/API";
 import "./WishList.css";
-import { addIntoFavMovies, removeFromFavMovies } from "../../Utils/functions";
+import { addIntoFavMovies, removeFromFavMovies, removeFromWishlist } from "../../Utils/functions";
 const WishList = () => {
-    const [showHeart, setShowHeart] = useState(false)
+    const navigate = useNavigate();
+    const [showHeart, setShowHeart] = useState(false)   // for favorites icon
     const [movies, setMovies] = useState([])  // wishlist movies
     const [favMovies, setFavMovies] = useState([])
     const [favMoviesIds, setFavMoviesIds] = useState([])
     
+    const seeMovieDetails = (id) => {
+        navigate(`/movie/${id}`)
+    }
     
     const toggleHeart = (id) => {
         setShowHeart((prev) => {
@@ -23,14 +28,12 @@ const WishList = () => {
             }
             return newPrev;
         });
-        // setExtra(true);
     }
 
     const clearWishlist = () => {
         localStorage.setItem("wishlist", JSON.stringify([]));
         setMovies([]);
     }
-
 
     const storeWishlist = () => {
         const movie_ids = JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -40,10 +43,13 @@ const WishList = () => {
             });
         }
 
+    const removeMovie = (id) => {
+        setMovies(movies.filter(movie => movie.id != id))
+        removeFromWishlist(id);
+    }
 
     const storeFavoriteMovies = () => {
         const movie_ids = JSON.parse(localStorage.getItem("favMovies")) || [];
-        // console.log("storeFavoriteMovies",movie_ids);
         setFavMoviesIds(movie_ids);
         Promise.all(movie_ids.map(id => fetchData(`https://api.themoviedb.org/3/movie/${id}`)))
             .then(movies => {
@@ -51,12 +57,8 @@ const WishList = () => {
             });
     }
 
-
     useEffect(() => {
         storeWishlist();
-        storeFavoriteMovies();
-        // console.log(movies)
-        // const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
     },[])
 
     useEffect(() => {
@@ -78,20 +80,20 @@ const WishList = () => {
                 <button style={{"backgroundColor":"green"}} onClick={setFavoriteMovies}>set favMovies</button>
                 <button id="wishlist_btn_clear" onClick={clearWishlist}>Clear Wishlist</button>
             </div>
-            {movies.map((movie, index) => {
+            {movies.length != 0 ? movies.map((movie, index) => {
                 // {{console.log(movie)}}
                 return(
                 <div className="row wishlist__movie_container" key={movie.id}>
                     <div className="col-2">
-                        <img id="wishlist__movie_img" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="movie" />
+                            <img id="wishlist__movie_img" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="movie" onClick={() => seeMovieDetails(movie.id)} />
                     </div>
                     <div className="col-8 wishlist_movie_content">
-                        <h1 id="wishlist__movie_title">{movie.title}</h1>
+                            <h1 id="wishlist__movie_title" onClick={() => seeMovieDetails(movie.id)}>{movie.title}</h1>
                         <p id="wishlist__movie_description">{movie.overview}</p>
                             {/* <p id="wishlist__movie_year">{movie.release_date}</p> */}
                     </div>
                     <div className="col-2 wishlist_movie_btns">
-                        <button id="wishlist__movie_rem_btn" className="btn btn-danger">Remove</button>
+                            <button id="wishlist__movie_rem_btn" className="btn btn-danger" onClick={() => removeMovie(movie.id)}>Remove</button>
 
                         <div className='wishlist__heart-icons' title='Add to favorites' onClick={()=>toggleHeart(movie.id)}>
                                 <i id={`wishlist_hear1_${movie.id}`} className="wishlist_heart_icon fa-regular fa-heart"
@@ -109,36 +111,7 @@ const WishList = () => {
                         </div>
                     </div>
                 </div>)
-            })}
-            
-            
-            {/* <div className="row wishlist__movie_container">
-                <div className="col-2">
-                    <img id="wishlist__movie_img" src={movies[0].image} alt="movie" />
-                </div>
-                <div className="col-8 wishlist_movie_content">
-                    <h1 id="wishlist__movie_title">{movies[0].title}</h1>
-                    <p id="wishlist__movie_description">{movies[0].description}</p>
-                </div>
-                <div className="col-2 wishlist_movie_btns">
-                    <button id="wishlist__movie_rem_btn" className="btn btn-danger">Remove</button>
-                    
-                    <div className='wishlist__heart-icons' title='Add to favorites' onClick={toggleHeart}>
-                        <i id="wishlist_hear1" className="wishlist_heart_icon fa-regular fa-heart"
-                            style={{
-                                color: '#00ff00',
-                                fontSize: 'xx-large',
-                            }}
-                        ></i>
-                        <i id="wishlist_hear2" className="wishlist_heart_icon fa-solid fa-heart"
-                            style={{
-                                color: '#00ff00',
-                                fontSize: 'xx-large',
-                            }}
-                        ></i>
-                    </div>
-                </div>
-            </div> */}
+            }) : <h1 className="no_record_heading">No movies in wishlist</h1>}
 
         </div>
     )

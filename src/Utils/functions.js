@@ -21,3 +21,4 @@ export const removeFromWishlist = (id) => {
     let movies = localStorage.getItem("wishlist") || [];
     localStorage.setItem("wishlist", JSON.stringify(JSON.parse(movies).filter(movie_id => movie_id != id)));
 }
+

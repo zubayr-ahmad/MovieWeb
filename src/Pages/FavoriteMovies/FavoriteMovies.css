@@ -1,20 +1,20 @@
-/* .wishlist{
+/* .favorites{
     
 } */
 
-.wishlist_header{
+.favorites_header {
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--block-bottom-space);
 }
 
-#wishlist__heading{
+#favorites__heading {
     font-size: 2.5rem;
     font-weight: 500;
     padding: 8px 0px;
 }
 
-#wishlist_btn_clear{
+#favorites_btn_clear {
     background: var(--primary-color-dark);
     padding: 8px 25px;
     font-size: 1.1rem;
@@ -22,13 +22,14 @@
     cursor: pointer;
     transition: all 0.5s ease;
 }
-#wishlist_btn_clear:hover{
+
+#favorites_btn_clear:hover {
     background: #dc3545;
     outline: 2px solid #db2739;
 }
 
 
-.wishlist__movie_container{
+.favorites__movie_container {
     margin: auto;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     max-height: 11rem;
@@ -36,43 +37,43 @@
     margin-bottom: 20px;
 }
 
-#wishlist__movie_img{
+#favorites__movie_img {
     width: 11rem;
     height: 11rem;
     cursor: pointer;
 }
 
-.wishlist_movie_content{
+.favorites_movie_content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 8px 0px;
 }
 
-#wishlist__movie_title{
+#favorites__movie_title {
     cursor: pointer;
     font-size: 2rem;
     font-weight: 600;
     padding: 8px 0px;
 }
 
-#wishlist__movie_title:hover{
+#favorites__movie_title:hover {
     text-decoration: underline;
 }
 
-.wishlist_movie_btns{
+.favorites_movie_btns {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-#wishlist__movie_rem_btn{
+#favorites__movie_rem_btn {
     height: fit-content;
     margin-top: 15px;
 }
 
-/* Heart Icon styling */
-.wishlist_heart_icon {
+/* Bookmark Icon styling */
+.favorites_bookmark_icon {
     position: absolute;
     top: 5rem;
     right: 30px;
@@ -82,7 +83,7 @@
     z-index: 1;
 }
 
-.no_record_heading{
+.no_record_heading {
     margin: auto;
     margin-top: 150px;
     font-size: 2rem;
