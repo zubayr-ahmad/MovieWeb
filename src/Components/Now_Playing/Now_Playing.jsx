@@ -11,7 +11,7 @@ function Now_Playing() {
   useEffect(() => {
     // show now playing movies page 01 on slide show
     fetchData("https://api.themoviedb.org/3/movie/now_playing").then((res) => {
-      setNowPlayingMovies(res.results);
+      setNowPlayingMovies(res.results.slice(0,10));
     });
     // page 02 on up next section
     fetchData("https://api.themoviedb.org/3/movie/now_playing?page=2").then((res) => {
