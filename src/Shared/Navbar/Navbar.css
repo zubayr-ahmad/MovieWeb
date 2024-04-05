@@ -85,7 +85,7 @@
     font-size: large;
 }
 
-.navbar__search>button {
+.navbar__search button {
     margin-left: 5px;
     padding: 7px 10px;
     background-color: #fdfffd00;
@@ -94,7 +94,7 @@
     transition: all ease 0.2s;
 }
 
-.navbar__search>button:hover {
+.navbar__search button:hover {
     transform: var(--primary-skew);
     cursor: pointer;
     border: 2px solid var(--primary-color);

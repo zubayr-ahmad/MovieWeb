@@ -62,6 +62,7 @@ const WishList = () => {
 
     useEffect(() => {
         storeWishlist();
+        storeFavoriteMovies();      // for favorites icon to fill up
     }, [])
 
     useEffect(() => {
@@ -82,8 +83,8 @@ const WishList = () => {
         <div className="container wishlist">
             <div className="wishlist_header">
                 <h1 id="wishlist__heading">Wishlist</h1>
-                <button style={{ "backgroundColor": "green" }} onClick={setWishlistMovies}>set wishlist</button>
-                <button style={{ "backgroundColor": "green" }} onClick={setFavoriteMovies}>set favMovies</button>
+                {/* <button style={{ "backgroundColor": "green" }} onClick={setWishlistMovies}>set wishlist</button>
+                <button style={{ "backgroundColor": "green" }} onClick={setFavoriteMovies}>set favMovies</button> */}
                 <button id="wishlist_btn_clear" onClick={clearWishlist}>Clear Wishlist</button>
             </div>
             {isLoading ? (<h1 className="loading_heading">Loading  . . .</h1>) : (
