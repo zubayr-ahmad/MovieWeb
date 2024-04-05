@@ -27,18 +27,6 @@
     outline: 2px solid #db2739;
 }
 
-.loading_heading{
-    margin: auto;
-    margin-top: 150px;
-    font-size: 2rem;
-    font-weight: 600;
-    padding: 20px 20px;
-    text-align: center;
-    color: #007bff;
-    width: fit-content;
-    outline: 2px solid #007bff;
-}
-
 
 .wishlist__movie_container{
     margin: auto;

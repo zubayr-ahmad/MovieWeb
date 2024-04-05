@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { imagesList } from '../../Utils/ExtraData'
 import {fetchData} from '../../Utils/API'
 import './Top_Rated.css';
-function Top_Rated(props) {
-    const { heading, url } = props
+function Top_Rated({heading, url, seeMore = true}) {
+    // requires Top heading and the url to fetch the data. Also seeMore is to show the end button to fetch more records
     console.log(heading, url)
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
@@ -89,7 +89,12 @@ function Top_Rated(props) {
                             </div>
                         </div>
                     ))}
-                    <button id="top_rated__see_more_btn" onClick={fetchMoreMovies}>{isfetching ? "Fetching ..." : "See More"}</button>
+                    {seeMore ? 
+                    (<button id="top_rated__see_more_btn" onClick={fetchMoreMovies}>{isfetching ? "Fetching ..." : "See More"}</button>) :(
+                        null
+                    )
+                    
+                }
                 </div>
             )}
             

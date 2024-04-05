@@ -5,6 +5,7 @@ import Movie from '../Movie/Movie'
 import Upcoming from '../Pages/Upcoming/Upcoming'
 import WishList from '../Pages/WishList/WishList'
 import FavoriteMovies from '../Pages/FavoriteMovies/FavoriteMovies'
+import Search from '../Pages/Search/Search'
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -14,6 +15,8 @@ const router = createBrowserRouter(
             <Route path='/upcoming' element={<Upcoming />} />
             <Route path="/wishlist" element={<WishList />} />
             <Route path="/favorites" element={<FavoriteMovies />} />
+            <Route path='/search/:query' element={<Search />} />
+            <Route path='*' element={<Home />} />
         </Route>
     )
 )
