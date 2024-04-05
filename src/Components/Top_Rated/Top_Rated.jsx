@@ -7,28 +7,30 @@ function Top_Rated(props) {
     const { heading, url } = props
     console.log(heading, url)
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(true);
+    const [isfetching, setIsFetching] = useState(false);    // for fetching more movies on See More button
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(2)
-    // console.log(movies)
     const seeMovieDetails = (id) => {
         navigate(`/movie/${id}`)
     }
     const fetchMoreMovies = () => {
+        setIsFetching(true)
         let data = []
         fetchData(`${url}?page=${page}`)
             .then(res => {
                 data = res.results
                 setMovies([...movies, ...data])
                 setPage(page + 1)
+                setIsFetching(false)
             })
-        // console.log(data)
-        
     }
     useEffect(() => {
         let data = []
         fetchData(`${url}`).then(res => {
             data = res.results
             setMovies(data)
+            setIsLoading(false);
         })
     }, [])
     return (
@@ -36,7 +38,8 @@ function Top_Rated(props) {
             <h1 className="top_rated__main-heading">
                 {heading}
             </h1>
-            <div className="top-rated-movies-cards">
+            {isLoading ? ( <h1 className='loading_heading'>Loading . . .</h1> ) : (
+                <div className="top-rated-movies-cards">
                     {movies.map((movie, index) => (
                         <div key={index}>
                             <div className="top_rated__main-container">
@@ -58,7 +61,7 @@ function Top_Rated(props) {
                                             {movie.vote_average.toFixed(1)}
                                         </div>
                                         <div className="button-detail">
-                                            <button className="learn-more" onClick={()=> seeMovieDetails(movie.id)}>
+                                            <button className="learn-more" onClick={() => seeMovieDetails(movie.id)}>
                                                 <span
                                                     aria-hidden="true"
                                                     className="circle"
@@ -86,8 +89,10 @@ function Top_Rated(props) {
                             </div>
                         </div>
                     ))}
-            <button id="top_rated__see_more_btn" onClick={fetchMoreMovies}>See More</button>
-            </div>
+                    <button id="top_rated__see_more_btn" onClick={fetchMoreMovies}>{isfetching ? "Fetching ..." : "See More"}</button>
+                </div>
+            )}
+            
         </ >
     )
 }
