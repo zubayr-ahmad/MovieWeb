@@ -35,3 +35,14 @@ export const now_playing_movies = [
     { image: "src/assets/Images/img06.jpg" ,
     title:"Zootopia", description:"This is a movie containing rabbit and some other animals inside a city and so on and on until they find something that has to be amazing"},
 ]
+
+const wishMovies = ["967847", "508883", "278", "497", "324857"]
+const favoriteMovies = ["467244", "278", "497", "122", "324857"]
+
+export const setWishlistMovies = () => {
+    localStorage.setItem("wishlist", JSON.stringify(wishMovies));
+}
+
+export const setFavoriteMovies = () => {
+    localStorage.setItem("favMovies", JSON.stringify(favoriteMovies));
+}

@@ -19,7 +19,7 @@ function Movie_Detail() {
             document.getElementById('hear2').style.opacity = 0;
             setShowHeart(false);
         }
-        if (!JSON.parse(localStorage.getItem("watchlist")).includes(id)) {
+        if (!JSON.parse(localStorage.getItem("wishlist")).includes(id)) {
             document.getElementById('wishlist2').style.opacity = 0;
             setShowWishlist(false);
         }
@@ -43,13 +43,13 @@ function Movie_Detail() {
     const toggleWishlist = () => {
         setShowWishlist((prev) => {
             const newPrev = !prev;
-            if (newPrev && !JSON.parse(localStorage.getItem("watchlist")).includes(id)) {
+            if (newPrev && !JSON.parse(localStorage.getItem("wishlist")).includes(id)) {
                 document.getElementById('wishlist2').style.opacity = 1;
-                localStorage.setItem("watchlist", JSON.stringify([...JSON.parse(localStorage.getItem("watchlist")), id]))
+                localStorage.setItem("wishlist", JSON.stringify([...JSON.parse(localStorage.getItem("wishlist")), id]))
             }
             else {
                 document.getElementById('wishlist2').style.opacity = 0;
-                localStorage.setItem("watchlist", JSON.stringify(JSON.parse(localStorage.getItem("watchlist")).filter(movie => movie !== id)))
+                localStorage.setItem("wishlist", JSON.stringify(JSON.parse(localStorage.getItem("wishlist")).filter(movie => movie !== id)))
             }
             return newPrev;
         });
