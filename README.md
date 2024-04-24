@@ -51,7 +51,7 @@ Open [http://localhost:5173](http://localhost:5173) to view the app in your brow
 This is a practice project, but you can contribute to it as well. Following are some of the things you can do to implement in this project:
 - You can add more features to this project by implementing more end-points of TMDB API.
 - You can improve the UI of this project and make it more user-friendly and responsive.
-- You can implement login and signup feature to this project and maintain the user's favorite movies list on the server of TMDB API.
+- You can implement Login and SignUp feature to this project and maintain the user's favorite movies list on the server of TMDB API.
 - You can also implement rating feature to this project and maintain the user's rating of movies on the server of TMDB API.
 - You can apply filters to the search results and apply them using the end-points of TMDB API.
 
