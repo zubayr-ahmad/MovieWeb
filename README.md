@@ -30,6 +30,12 @@ It shows you the latest movies of the market, top rated movies of all times, and
 - View detailed information about a movie; description, run-time, imdb link, genres, images, videos and casts.
 - Include movies to your wishlist and favorite movies lists (automatically maintained separately for each browser).
 
+## Visuals
+Following are some of the screenshots of the project:
+<div>
+    <img src="/src/assets/project_visual.png" alt="Project Visual" width="100%">
+</div>
+
 ## Setup and Installation
 
 1. Clone the repository using command: `git clone https://github.com/zubayr-ahmad/MovieWeb.git`.
