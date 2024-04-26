@@ -32,9 +32,6 @@ It shows you the latest movies of the market, top rated movies of all times, and
 
 ## Visuals
 Following are some of the screenshots of the project:
-<div>
-    <img src="/src/assets/project_visual.png" alt="Project Visual" width="100%">
-</div>
 
 ## Setup and Installation
 
