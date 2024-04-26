@@ -11,6 +11,7 @@ It shows you the latest movies of the market, top rated movies of all times, and
 ## Table of Contents
 - [Technologies Used](#technologies-used)
 - [Features](#features)
+- [Visuals](#visuals)
 - [Setup and Installation](#setup-and-installation)
 - [Usage](#usage)
 - [What you can contribute to this project?](#what-you-can-contribute-to-this-project)
@@ -32,6 +33,13 @@ It shows you the latest movies of the market, top rated movies of all times, and
 
 ## Visuals
 Following are some of the screenshots of the project:
+![project_visuals02](https://github.com/zubayr-ahmad/MovieWeb/assets/96572607/1d833d21-c7fd-4a40-8848-a91b9ff09c3c)
+![Screenshot (4)](https://github.com/zubayr-ahmad/MovieWeb/assets/96572607/13f76f5a-7c7a-4dbb-a4ef-5cbe2702a0b6)
+![Screenshot (6)](https://github.com/zubayr-ahmad/MovieWeb/assets/96572607/87c6c05a-a3be-4505-97b5-b173c229c38f)
+![Screenshot (7)](https://github.com/zubayr-ahmad/MovieWeb/assets/96572607/30925d39-7af3-40a8-8278-58647a25373d)
+![Screenshot (8)](https://github.com/zubayr-ahmad/MovieWeb/assets/96572607/0cc92d2d-5f90-49f4-93f4-fef733a98f7b)
+![Screenshot (9)](https://github.com/zubayr-ahmad/MovieWeb/assets/96572607/d936e33d-2204-43ad-b5a6-b68cc6bb9de4)
+
 
 ## Setup and Installation
 
