@@ -8,6 +8,10 @@ The project is a simple movie database web application that allows users to brow
 It is a practice project to practice react, so I have used TMDB Api as a backend that provides so many end-points that you can integrate in your react app.
 It shows you the latest movies of the market, top rated movies of all times, and upcoming movies as well. You can also include the movies to your wishlist that you want to watch later on. You can also arrange your favorite movies list as well.
 
+## Working Demo
+Youtube video showing the working of the project. <br>
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/fhV_NJo-Ag0/0.jpg)](https://www.youtube.com/watch?v=fhV_NJo-Ag0)
+
 ## Table of Contents
 - [Technologies Used](#technologies-used)
 - [Features](#features)
